@@ -7,15 +7,24 @@ function M.get_highlights(colors)
   local c = colors
 
   return {
+    -- Error handling
+    ["@error"] = { fg = c.red, bg = "NONE" },
+    
+    -- Punctuation (critical missing groups)
+    ["@punctuation.delimiter"] = { fg = c.fg, bg = "NONE" },
+    ["@punctuation.bracket"] = { fg = c.fg, bg = "NONE" },
+    ["@punctuation.special"] = { fg = c.fg, bg = "NONE" },
+    
     -- Identifiers
     ["@variable"] = { fg = c.light_blue },
     ["@variable.builtin"] = { fg = c.blue, italic = true },
     ["@variable.parameter"] = { fg = c.light_blue },
+    ["@variable.parameter.reference"] = { fg = c.light_blue },
     ["@variable.member"] = { fg = c.light_blue },
     
-    ["@constant"] = { fg = c.light_blue },
+    ["@constant"] = { fg = c.accent_blue },
     ["@constant.builtin"] = { fg = c.blue },
-    ["@constant.macro"] = { fg = c.neon_purple },
+    ["@constant.macro"] = { fg = c.blue_green },
     
     ["@module"] = { fg = c.light_blue },
     ["@module.builtin"] = { fg = c.blue },
@@ -39,12 +48,13 @@ function M.get_highlights(colors)
     ["@number.float"] = { fg = c.light_green },
     
     -- Types
-    ["@type"] = { fg = c.blue },
+    ["@type"] = { fg = c.blue_green },
     ["@type.builtin"] = { fg = c.blue, italic = true },
     ["@type.definition"] = { fg = c.blue_green },
+    ["@type.qualifier"] = { fg = c.blue },
     
-    ["@attribute"] = { fg = c.neon_purple },
-    ["@attribute.builtin"] = { fg = c.neon_purple, italic = true },
+    ["@attribute"] = { fg = c.yellow },
+    ["@attribute.builtin"] = { fg = c.blue_green },
     ["@property"] = { fg = c.light_blue },
     
     -- Functions
@@ -56,8 +66,11 @@ function M.get_highlights(colors)
     ["@function.method"] = { fg = c.yellow },
     ["@function.method.call"] = { fg = c.yellow },
     
-    ["@constructor"] = { fg = c.blue_green },
+    ["@constructor"] = { fg = c.blue },
     ["@operator"] = { fg = c.fg },
+    ["@property"] = { fg = c.light_blue },
+    ["@annotation"] = { fg = c.yellow },
+    ["@define"] = { fg = c.pink },
     
     -- Keywords
     ["@keyword"] = { fg = c.pink },
@@ -76,10 +89,6 @@ function M.get_highlights(colors)
     ["@keyword.directive"] = { fg = c.neon_purple },
     ["@keyword.directive.define"] = { fg = c.neon_purple },
     
-    -- Punctuation
-    ["@punctuation.delimiter"] = { fg = c.fg },
-    ["@punctuation.bracket"] = { fg = c.fg },
-    ["@punctuation.special"] = { fg = c.neon_cyan },
     
     -- Comments
     ["@comment"] = { fg = c.comment, italic = true },
@@ -122,10 +131,12 @@ function M.get_highlights(colors)
     ["@diff.delta"] = { fg = c.neon_blue },
     
     -- Tags (HTML, XML, etc.)
-    ["@tag"] = { fg = c.pink },
-    ["@tag.builtin"] = { fg = c.pink },
+    ["@tag"] = { fg = c.blue },
+    ["@tag.builtin"] = { fg = c.blue },
     ["@tag.attribute"] = { fg = c.light_blue },
     ["@tag.delimiter"] = { fg = c.gray },
+    ["@structure"] = { fg = c.light_blue },
+    ["@text"] = { fg = c.fg, bg = "NONE" },
     
     -- Language-specific
     -- CSS
