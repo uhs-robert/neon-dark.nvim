@@ -1,5 +1,9 @@
 # neon-dark.nvim
 
+> [!WARNING]
+> Currently under construction. Theme is not completed yet. Come back later!
+> 
+
 A professional dark Neovim colorscheme with vibrant neon accent colors. This theme provides excellent contrast and readability while featuring bright, eye-catching highlights for important UI elements.
 
 ## ✨ Features
