@@ -42,12 +42,12 @@ function M.get_highlights(colors)
     DiagnosticFloatingHint = { fg = c.neon_cyan, bg = c.popup_bg },
     DiagnosticFloatingOk = { fg = c.neon_green, bg = c.popup_bg },
     
-    -- LSP semantic token highlights
+    -- LSP semantic token highlights (comprehensive VSCode-style coverage)
     ["@lsp.type.class"] = { fg = c.blue_green },
     ["@lsp.type.comment"] = { link = "Comment" },
     ["@lsp.type.decorator"] = { fg = c.neon_purple },
     ["@lsp.type.enum"] = { fg = c.blue_green },
-    ["@lsp.type.enumMember"] = { fg = c.light_blue },
+    ["@lsp.type.enumMember"] = { fg = c.accent_blue },
     ["@lsp.type.event"] = { fg = c.neon_orange },
     ["@lsp.type.function"] = { link = "Function" },
     ["@lsp.type.interface"] = { fg = c.blue_green },
@@ -66,6 +66,35 @@ function M.get_highlights(colors)
     ["@lsp.type.type"] = { link = "Type" },
     ["@lsp.type.typeParameter"] = { fg = c.blue_green },
     ["@lsp.type.variable"] = { fg = c.light_blue },
+    
+    -- Additional LSP semantic tokens matching VSCode
+    ["@lsp.type.selfKeyword"] = { fg = c.blue, italic = true },
+    ["@lsp.type.builtinType"] = { fg = c.blue, italic = true },
+    ["@lsp.type.magicFunction"] = { fg = c.yellow, italic = true },
+    ["@lsp.type.generic"] = { fg = c.blue_green },
+    ["@lsp.type.lifetime"] = { fg = c.orange },
+    ["@lsp.type.formatSpecifier"] = { fg = c.neon_cyan },
+    ["@lsp.type.escapeSequence"] = { fg = c.neon_cyan },
+    ["@lsp.type.attributeBracket"] = { fg = c.gray },
+    ["@lsp.type.punctuation"] = { fg = c.fg },
+    
+    -- LSP type modifiers (comprehensive coverage)
+    ["@lsp.typemod.type.defaultLibrary"] = { fg = c.blue, italic = true },
+    ["@lsp.typemod.variable.readonly"] = { fg = c.accent_blue },
+    ["@lsp.typemod.property.readonly"] = { fg = c.accent_blue },
+    ["@lsp.typemod.variable.constant"] = { fg = c.accent_blue },
+    ["@lsp.typemod.variable.static"] = { fg = c.accent_blue },
+    ["@lsp.typemod.property.static"] = { fg = c.accent_blue },
+    ["@lsp.typemod.function.defaultLibrary"] = { fg = c.yellow },
+    ["@lsp.typemod.method.defaultLibrary"] = { fg = c.yellow },
+    ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.blue, italic = true },
+    ["@lsp.typemod.function.builtin"] = { fg = c.yellow, italic = true },
+    ["@lsp.typemod.variable.global"] = { fg = c.light_blue },
+    ["@lsp.typemod.variable.injected"] = { fg = c.light_blue },
+    ["@lsp.typemod.parameter.injected"] = { fg = c.light_blue },
+    ["@lsp.typemod.keyword.controlFlow"] = { fg = c.pink },
+    ["@lsp.typemod.operator.controlFlow"] = { fg = c.pink },
+    ["@lsp.typemod.keyword.documentation"] = { fg = c.comment, italic = true },
     
     -- LSP reference highlighting
     LspReferenceText = { bg = c.selection },
