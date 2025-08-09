@@ -45,14 +45,28 @@ let s:neon_yellow = '#FFFF33'
 let s:neon_purple = '#B026FF'
 let s:neon_cyan = '#0FF0FC'
 
+" Color mapping for terminal compatibility
+function! s:hex_to_term(hex_color)
+  let l:color_map = {
+    \ '#000000': '0',   '#D4D4D4': '252', '#5A5A5A': '240',
+    \ '#264F78': '24',  '#6A9955': '107', '#F44747': '203',
+    \ '#569CD6': '74',  '#DCDCAA': '187', '#CE9178': '173',
+    \ '#C586C0': '176', '#9CDCFE': '117', '#B5CEA8': '151',
+    \ '#4EC9B0': '79',  '#39FF14': '118', '#1F51FF': '21',
+    \ '#FF073A': '196', '#FFFF33': '226', '#B026FF': '129',
+    \ '#0FF0FC': '51',  '#080808': '232', '#555555': '240'
+  \ }
+  return get(l:color_map, a:hex_color, 'NONE')
+endfunction
+
 " Helper function to set highlights
 function! s:hi(group, fg, bg, attr)
   let l:cmd = 'highlight ' . a:group
   if a:fg != ''
-    let l:cmd .= ' guifg=' . a:fg . ' ctermfg=' . a:fg
+    let l:cmd .= ' guifg=' . a:fg . ' ctermfg=' . s:hex_to_term(a:fg)
   endif
   if a:bg != ''
-    let l:cmd .= ' guibg=' . a:bg . ' ctermbg=' . a:bg
+    let l:cmd .= ' guibg=' . a:bg . ' ctermbg=' . s:hex_to_term(a:bg)
   endif
   if a:attr != ''
     let l:cmd .= ' gui=' . a:attr . ' cterm=' . a:attr
